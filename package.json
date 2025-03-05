@@ -1,0 +1,99 @@
+{
+  "name": "sanity-plugin-all-in-one-accessibility",
+  "version": "1.0.0",
+  "description": "Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA compliance!",
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "sanity.io",
+    "cms",
+    "headless",
+    "gui",
+    "admin",
+    "All in One Accessibility",
+    "ADA",
+    "All in One Accessibility Sanity",
+    "All in One Accessibility javascript",
+    "Sanity Plugin All in One Accessibility",
+    "sanity-plugin-all-in-one-accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skynettechnologies/sanity-plugin-all-in-one-accessibility"
+  },
+  "bugs": {
+    "url": "https://github.com/skynettechnologies/sanity-plugin-all-in-one-accessibility/issues"
+  },
+  "homepage": "https://github.com/skynettechnologies/sanity-plugin-all-in-one-accessibility#readme",
+  "license": "MIT",
+  "author": "Skynet Technologies USA LLC <developer3@skynettechnologies.com>",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "sanity.json",
+    "src",
+    "v2-incompatible.js"
+  ],
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "format": "prettier --write --cache --ignore-unknown .",
+    "link-watch": "plugin-kit link-watch",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "watch": "pkg-utils watch --strict"
+  },
+  "dependencies": {
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "react-intl": "^7.1.6",
+    "react-bootstrap": "^2.10.9",
+    "prop-types": "^15.8.1",
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "@sanity/pkg-utils": "^7.0.4",
+    "@sanity/plugin-kit": "^4.0.19",
+    "@types/react": "^19.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-sanity": "^7.1.4",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-packagejson": "^2.5.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^3.77.2",
+    "styled-components": "^6.1.15",
+    "typescript": "^5.7.3",
+    "react-router-dom": "^7.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "sanity": "^3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "tsc": false
+    }
+  },
+  "browserslist": [
+    "extends @sanity/browserslist-config"
+  ]
+}
