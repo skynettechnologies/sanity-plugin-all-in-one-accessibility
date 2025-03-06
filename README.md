@@ -109,7 +109,7 @@ To configure the widget, access the Admin Panel and head to the **All in One Acc
 ## Documentation
 
 - **[Sanity All in One Accessibility](https://www.skynettechnologies.com/sanity-website-accessibility)**
-- **[How to install All in One Accessibility Extension on Sanity blog](**https://www.skynettechnologies.com/blog/sanity-web-accessibility-widget-installation**)**
+- **[How to install All in One Accessibility Extension on Sanity blog](https://www.skynettechnologies.com/blog/sanity-web-accessibility-widget-installation)**
 - **[All in One Accessibility - Features Guide](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)**
 
 ## Submit a Support Request
