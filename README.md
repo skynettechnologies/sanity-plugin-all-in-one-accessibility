@@ -222,8 +222,8 @@ Enhance website accessibility and inclusivity with our Manual Accessibility Reme
 ### **[PDF/Document Accessibility Remediation](https://www.skynettechnologies.com/all-in-one-accessibility/addons#pdf-document-remediation)**
 The PDF / Document Remediation provides a list of inaccessible PDFs and remediated PDFs from where you can request PDF remediation service.
  
- ### **[VPAT Report/Accessibility Conformance Report(ACR)](https://www.skynettechnologies.com/all-in-one-accessibility/addons#vpat-acr-report)**
- The Voluntary Product Accessibility Template (VPAT), also known as an ACR (Accessibility Conformance Report) starts with an audit and provides current details for an accessible website, application, or any other digital assets.
+### **[VPAT Report/Accessibility Conformance Report(ACR)](https://www.skynettechnologies.com/all-in-one-accessibility/addons#vpat-acr-report)**
+The Voluntary Product Accessibility Template (VPAT), also known as an ACR (Accessibility Conformance Report) starts with an audit and provides current details for an accessible website, application, or any other digital assets.
 
 ## Accessibility Widget Paid Add-ons
 
@@ -250,17 +250,17 @@ For more details, Please visit **[Partnership Opportunities Page](https://www.sk
 
 ## Screenshots
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-1-free.jpg?v=3)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-1-free.jpg?v=4)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-2-free.jpg?v=3)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-2-free.jpg?v=4)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-3-free.jpg?v=3)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-3-free.jpg?v=4)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-4-free.jpg?v=3)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/screenshot-4-free.jpg?v=4)
 
 ## Video
 
-[![All in One Accessibility](https://img.youtube.com/vi/X70XtvGyvSs/0.jpg)](https://www.youtube.com/watch?v=X70XtvGyvSs)
+[![All in One Accessibility](https://img.youtube.com/vi/X70XtvGyvSs/0.jpg)](https://youtu.be/X70XtvGyvSs)
 
 ## Credits
 
