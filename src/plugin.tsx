@@ -106,7 +106,8 @@ const HomePage: FC = () => {
     // console.log('user', user?.name);
     // console.log('user', user?.email);
 
-    getAPIData()
+    // getAPIData()
+    fetchApiData()
   }, [settingList])
 
   useEffect(() => {
@@ -494,9 +495,12 @@ const HomePage: FC = () => {
     }
   }
 
-  function fetchApiData(website_name: string): void {
-    const username: string = userData?.name ?? ''
-    const useremail: string = userData?.email ?? ''
+  function fetchApiData(): void {
+    // const username: string = userData?.name ?? ''
+    // const useremail: string = userData?.email ?? ''
+
+    const username: string = window.location.hostname
+    const useremail: string = "no-reply@"+ window.location.hostname + ".com"
 
     const packageType: string = 'free-widget'
     const arrDetails: {
@@ -525,13 +529,13 @@ const HomePage: FC = () => {
       name: username,
       email: useremail,
       company_name: username,
-      website: website_name,
+      website: btoa(window.location.hostname),
       package_type: packageType,
       start_date: new Date().toISOString(),
       end_date: '',
       price: '',
       discount_price: '0',
-      platform: 'webasyst',
+      platform: 'sanity',
       api_key: '',
       is_trial_period: '',
       is_free_widget: '0',
@@ -552,17 +556,19 @@ const HomePage: FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({website: website_name}),
+      body: JSON.stringify({website: window.location.hostname}),
     })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
+        getAPIData()
         return response.json()
       })
       .then((result) => {
         if (result && result.link) {
           // Handle valid link
+          getAPIData()
         } else {
           const secondApiUrl: string = 'https://ada.skynettechnologies.us/api/add-user-domain'
 
@@ -577,11 +583,13 @@ const HomePage: FC = () => {
               if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`)
               }
+              getAPIData()
               return response.json()
             })
             .then((data) => {
               if (data.success) {
                 // Handle success
+                getAPIData()
               } else {
                 // Handle error
               }
