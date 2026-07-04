@@ -1,7 +1,7 @@
 {
   "name": "sanity-plugin-all-in-one-accessibility",
-  "version": "1.0.7",
-  "description": "Website accessibility widget for improving WCAG 2.0, 2.1, 2.2 and ADA compliance!",
+  "version": "1.0.8",
+  "description": "Website accessibility widget for improving WCAG 2.0, 2.1, 2.2, and ADA, EAA compliance!",
   "keywords": [
     "sanity",
     "sanity-plugin",
@@ -28,22 +28,27 @@
   "license": "MIT",
   "author": "Skynet Technologies USA LLC <developer3@skynettechnologies.com>",
   "sideEffects": false,
-  "type": "commonjs",
+  "type": "module",
   "exports": {
-    ".": {
+  ".": {
       "source": "./src/index.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "sanity.json",
-    "src",
-    "v2-incompatible.js"
+    "dist"
   ],
   "scripts": {
     "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
@@ -54,15 +59,14 @@
     "watch": "pkg-utils watch --strict"
   },
   "dependencies": {
-    "@sanity/incompatible-plugin": "^1.0.5",
     "react-intl": "^7.1.6",
     "react-bootstrap": "^2.10.9",
     "prop-types": "^15.8.1",
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "@sanity/pkg-utils": "^7.0.4",
-    "@sanity/plugin-kit": "^4.0.19",
+    "@sanity/pkg-utils": "^10.9.0",
+    "@sanity/plugin-kit": "^6.0.3",
     "@types/react": "^19.0.10",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
@@ -76,8 +80,8 @@
     "prettier-plugin-packagejson": "^2.5.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sanity": "^4.2.0",
-    "styled-components": "^6.1.15",
+    "sanity": "^6.3.0",
+    "styled-components": "^6.4.3",
     "typescript": "^5.7.3",
     "react-router-dom": "^7.2.0"
   },
@@ -86,11 +90,12 @@
     "sanity": "^4"
   },
   "engines": {
-    "node": ">=18"
+  "node": ">=20.19 <22 || >=22.12"
   },
   "sanityPlugin": {
     "verifyPackage": {
-      "tsc": false
+      "tsc": false,
+      "incompatiblePlugin": false
     }
   },
   "browserslist": [

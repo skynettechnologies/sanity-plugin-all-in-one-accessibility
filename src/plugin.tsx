@@ -2,6 +2,7 @@ import React, {FC, useState, useEffect, ChangeEvent} from 'react'
 import {Form, Button, Image} from 'react-bootstrap'
 import {InputGroup, FormControl, Row, Col, Tooltip, OverlayTrigger} from 'react-bootstrap'
 import {useCurrentUser} from 'sanity'
+import {SyntheticEvent} from 'react'
 
 const aioaicontype1 = 'https://sanity.skynettechnologies.us/assets/images/aioa-icon-type-1.svg'
 const aioaicontype2 = 'https://sanity.skynettechnologies.us/assets/images/aioa-icon-type-2.svg'
@@ -616,16 +617,21 @@ const HomePage: FC = () => {
     backgroundColor: '',
   }
 
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = Math.min(Math.max(Number(e.target.value), 0), 250).toString()
+  type FormControlElementLocal = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+
+  const handleInput = (e: SyntheticEvent<FormControlElementLocal>) => {
+    const target = e.target as HTMLInputElement
+    target.value = Math.min(Math.max(Number(target.value), 0), 250).toString()
   }
 
-  const handleInput2 = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = Math.min(Math.max(Number(e.target.value), 0), 250).toString()
+  const handleInput2 = (e: SyntheticEvent<FormControlElementLocal>) => {
+    const target = e.target as HTMLInputElement
+    target.value = Math.min(Math.max(Number(target.value), 0), 250).toString()
   }
 
-  const handleInput1 = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = Math.min(Math.max(Number(e.target.value), 20), 150).toString()
+  const handleInput1 = (e: SyntheticEvent<FormControlElementLocal>) => {
+    const target = e.target as HTMLInputElement
+    target.value = Math.min(Math.max(Number(target.value), 20), 150).toString()
   }
 
   /**
