@@ -1,76 +1,43 @@
-import {definePlugin} from 'sanity'
-import PluginIcon from './icon'
-import pluginPage from './plugin'
-import {route} from 'sanity/router'
-import {lazy} from 'react'
+import {definePlugin, type Tool} from 'sanity'
 
-interface aioaPluginConfig {
-  /* nothing here yet */
-}
+import PluginIcon from './icon'
+import SettingsPage, {type AllinOneAccessibilityOptions} from './plugin'
+
+export type {AllinOneAccessibilityOptions}
 
 /**
- * Usage in `sanity.config.ts` (or .js)
+ * All in One Accessibility® settings as a Studio tool.
+ *
+ * Usage in `sanity.config.ts` (or .js):
  *
  * ```ts
  * import {defineConfig} from 'sanity'
- * import {myPlugin} from 'sanity-plugin-all-in-one-accessibility'
+ * import {AllinOneAccessibilityPlugin} from 'sanity-plugin-all-in-one-accessibility'
  *
  * export default defineConfig({
  *   // ...
- *   plugins: [myPlugin()],
+ *   plugins: [
+ *     AllinOneAccessibilityPlugin({
+ *       // Optional: the website the widget runs on (default: the Studio's hostname)
+ *       websiteUrl: 'www.example.com',
+ *     }),
+ *   ],
  * })
  * ```
  */
-// export const myPlugin = definePlugin<MyPluginConfig | void>((config = {}) => {
-//   // eslint-disable-next-line no-console
-//   console.log('hello from sanity-plugin-all-in-one-accessibility')
-//   return {
-//     name: 'sanity-plugin-all-in-one-accessibility',
-//   }
-// })
+export const AllinOneAccessibilityPlugin = definePlugin<AllinOneAccessibilityOptions | void>(
+  (options) => {
+    const tool: Tool<AllinOneAccessibilityOptions> = {
+      name: 'sanity-plugin-all-in-one-accessibility',
+      title: 'All in One Accessibility',
+      icon: PluginIcon,
+      component: SettingsPage,
+      options: options || {},
+    }
 
-
-/*
-export const AllinOneAccessibilityPlugin = definePlugin<aioaPluginConfig | void>((config = {}) => {
-  return {
-    name: 'All in One Accessibility',
-    studio: {
-      components: {
-        activeToolLayout:AllinOneAccessibilityPlugin
-      }
-    },
-    component: plugin,
-    tools: (prev) => {
-      return [
-        ...prev,
-        {
-          title: 'All in One Accessibility',
-          name: 'sanity-plugin-all-in-one-accessibility',
-          icon: PluginIcon,
-          component: plugin,
-        },
-      ]
-    },
-  }
-})*/
-
-import React from 'react'
-import {AssetSource, Tool as SanityTool, } from 'sanity'
-
-const plugin = {
-  icon: PluginIcon,
-  name: 'sanity-plugin-all-in-one-accessibility',
-  title: 'All in One Accessibility',
-}
-
-const tool = {
-  ...plugin,
-  component: pluginPage,
-} satisfies SanityTool
-
-export const AllinOneAccessibilityPlugin = definePlugin<aioaPluginConfig | void>(options => ({
-  name: 'sanity-plugin-all-in-one-accessibility',
-  tools: prev => {
-    return [...prev, tool]
-  }
-}))
+    return {
+      name: 'sanity-plugin-all-in-one-accessibility',
+      tools: (prev) => [...prev, tool],
+    }
+  },
+)

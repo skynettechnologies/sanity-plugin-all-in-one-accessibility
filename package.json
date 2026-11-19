@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-all-in-one-accessibility",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Website accessibility widget for improving WCAG 2.0, 2.1, 2.2, and ADA, EAA compliance!",
   "keywords": [
     "sanity",
@@ -30,7 +30,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-  ".": {
+    ".": {
       "source": "./src/index.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
@@ -58,12 +58,6 @@
     "prepublishOnly": "npm run build",
     "watch": "pkg-utils watch --strict"
   },
-  "dependencies": {
-    "react-intl": "^7.1.6",
-    "react-bootstrap": "^2.10.9",
-    "prop-types": "^15.8.1",
-    "bootstrap": "^5.3.3"
-  },
   "devDependencies": {
     "@sanity/pkg-utils": "^10.9.0",
     "@sanity/plugin-kit": "^6.0.3",
@@ -80,17 +74,17 @@
     "prettier-plugin-packagejson": "^2.5.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.2.0",
     "sanity": "^6.3.0",
     "styled-components": "^6.4.3",
-    "typescript": "^5.7.3",
-    "react-router-dom": "^7.2.0"
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
-    "react": "^18",
-    "sanity": "^4"
+    "react": "^18 || ^19",
+    "sanity": "^4 || ^5 || ^6"
   },
   "engines": {
-  "node": ">=20.19 <22 || >=22.12"
+    "node": ">=20.19 <22 || >=22.12"
   },
   "sanityPlugin": {
     "verifyPackage": {
