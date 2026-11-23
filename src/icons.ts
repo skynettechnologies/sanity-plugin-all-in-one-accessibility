@@ -4,7 +4,7 @@
  * ---------------------------------------------------------------------------
  * The 29 widget icon types (aioa-icon-type-1 ... aioa-icon-type-29) as SVG data
  * URIs, so the settings tool loads no outside files. Generated from the
- * reference app's assets/images/icons/*.svg (also in src/assets/images).
+ * reference app's assets/images/icons/*.svg.
  */
 
 /* eslint-disable prettier/prettier */
