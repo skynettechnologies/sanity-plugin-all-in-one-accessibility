@@ -17,6 +17,7 @@ import {
   type MobileYDir,
   OFFSET_MAX,
   type PaidState,
+  POSITION_HINT,
   POSITION_MESSAGE,
 } from '../form'
 import {iconUrl} from '../icons'
@@ -210,7 +211,7 @@ function MobilePosition({
             </select>
           </div>
           <p className="aioa-hint" id="aioa-mobile-range-hint">
-            0 - 250px are permitted values
+            {POSITION_HINT}
           </p>
           <p className="aioa-error" id="aioa-mobile-pos-error" hidden={!state.mobileCheck}>
             {state.mobileCheck ? POSITION_MESSAGE : ''}

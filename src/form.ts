@@ -49,7 +49,7 @@ export interface AppearanceState {
   customSize: boolean
   iconSize: string
   iconSizeCustom: string
-  /** "Enter an exact icon size from 20 to 150 px." is shown; the mark then follows what is typed */
+  /** "Enter an exact icon size from 24 to 150 px." is shown; the mark then follows what is typed */
   sizeCheck: boolean
 }
 
@@ -103,17 +103,18 @@ export interface CollectResult {
   problems: Problem[]
 }
 
-export const POSITION_MESSAGE = 'Enter a horizontal and a vertical position from 0 to 250 px.'
+/** Exact offsets are whole pixels from 0 to 500 */
+export const OFFSET_MAX = 500
+export const POSITION_MESSAGE = `Enter a horizontal and a vertical position from 0 to ${OFFSET_MAX} px.`
+export const POSITION_HINT = `0 - ${OFFSET_MAX}px are permitted values`
 
-/** Exact offsets are whole pixels from 0 to 250 */
-export const OFFSET_MAX = 250
-
-/** Exact icon size: whole pixels from 20 to 150 */
-export const SIZE_MIN = 20
+/** Exact icon size: whole pixels from 24 to 150 */
+export const SIZE_MIN = 24
 export const SIZE_MAX = 150
 export const SIZE_MESSAGE = `Enter an exact icon size from ${SIZE_MIN} to ${SIZE_MAX} px.`
+export const SIZE_HINT = `${SIZE_MIN} - ${SIZE_MAX}px are permitted values`
 
-/** A valid exact icon size: a whole number from 20 to 150 */
+/** A valid exact icon size: a whole number from 24 to 150 */
 export function isValidIconSize(value: string): boolean {
   const size = wholeNumber(value, null)
   return size !== null && size >= SIZE_MIN && size <= SIZE_MAX
@@ -311,12 +312,11 @@ export function collect(
       focus: appearance.x.trim() === '' ? 'x' : 'y',
       name: 'Widget position',
       title: 'Position missing',
-      message:
-        'Enter the exact position (0 - 250 px), or turn off "Set an exact position in pixels".',
+      message: `Enter the exact position (0 - ${OFFSET_MAX} px), or turn off "Set an exact position in pixels".`,
     })
   }
 
-  // Exact icon size: a whole number from 20 to 150 px
+  // Exact icon size: a whole number from 24 to 150 px
   if (appearance.customSize && !isValidIconSize(appearance.iconSizeCustom)) {
     appearance = {...appearance, sizeCheck: true}
     problems.push({
@@ -339,7 +339,7 @@ export function collect(
         focus: paid.mx.trim() === '' ? 'mx' : 'my',
         name: 'Widget position for mobile (Paid Features)',
         title: 'Mobile position missing',
-        message: 'Enter the exact mobile position (0 - 250 px) on the Paid Features tab.',
+        message: `Enter the exact mobile position (0 - ${OFFSET_MAX} px) on the Paid Features tab.`,
       })
     }
 

@@ -15,7 +15,9 @@ import {
   type AppearanceState,
   isValidIconSize,
   OFFSET_MAX,
+  POSITION_HINT,
   POSITION_MESSAGE,
+  SIZE_HINT,
   SIZE_MAX,
   SIZE_MESSAGE,
   SIZE_MIN,
@@ -261,7 +263,7 @@ function PositionSection({state, update, refs}: Omit<Props, 'setQuietly'>) {
         onChange={(position) => update({position})}
       />
 
-      {/* Exact offsets (0 - 250 px) */}
+      {/* Exact offsets (0 - 500 px) */}
       <div className="aioa-subpanel" id="aioa-custom-position" hidden={!state.customPosition}>
         <div className="aioa-offset-row">
           <label className="aioa-label" htmlFor="aioa-position-x">
@@ -320,7 +322,7 @@ function PositionSection({state, update, refs}: Omit<Props, 'setQuietly'>) {
           </select>
         </div>
         <p className="aioa-hint" id="aioa-pos-range-hint">
-          0 - 250px are permitted values
+          {POSITION_HINT}
         </p>
         {/* Stays empty while hidden, so screen readers never read a stale message */}
         <p className="aioa-error" id="aioa-pos-error" hidden={!state.positionCheck}>
@@ -425,7 +427,7 @@ function IconSizeSection({state, update, refs}: Omit<Props, 'setQuietly'>) {
         </div>
       </fieldset>
 
-      {/* Exact size (20 - 150 px), checked when saving */}
+      {/* Exact size (24 - 150 px), checked when saving */}
       <div className="aioa-subpanel" id="aioa-custom-size" hidden={!state.customSize}>
         <label className="aioa-label" htmlFor="aioa-icon-size-custom">
           Exact icon size
@@ -453,7 +455,7 @@ function IconSizeSection({state, update, refs}: Omit<Props, 'setQuietly'>) {
           </span>
         </div>
         <p className="aioa-hint" id="aioa-size-range-hint">
-          20 - 150px are permitted values
+          {SIZE_HINT}
         </p>
         {/* Stays empty while hidden, so screen readers never read a stale message */}
         <p className="aioa-error" id="aioa-size-error" hidden={!state.sizeCheck}>

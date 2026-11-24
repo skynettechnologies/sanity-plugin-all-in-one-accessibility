@@ -34,12 +34,12 @@ Businesses, developers, agencies, content teams, ecommerce brands, educational i
 
 - Aligns with global accessibility standards.
 - Improves usability for people with visual, cognitive, and motor impairments.
-- Works with any website frontend that renders your Sanity content.
+- Integrates smoothly with most Sanity themes and templates.
 - Supports multisite setups for global reach.
 - Free support from our team for installation and queries.
 - Core features at no cost.
 
-## Free vs Pro
+## Free vs Paid
 
 See the full [free widget vs paid app comparison](https://www.skynettechnologies.com/installation-guide/free-vs-paid-accessibility-widget-comparison-video).
 
@@ -65,7 +65,7 @@ Yes. It supports 190+ languages.
 
 **Which languages do the screen reader, virtual keyboard, and other advanced features support?**
 
-In the paid app, Screen Reader, Talk & Type, and Live Site Translation support 50+ languages; the Virtual Keyboard supports 40+ languages; Voice Navigation and Dictionary Search support 20+ languages. [See language support details](https://www.skynettechnologies.com/all-in-one-accessibility/languages).
+The widget interface supports 190+ languages. In the paid app, Screen Reader supports 100+, Voice Navigation 50+, Talk & Type 50+, Virtual Keyboard 40+, Dictionary Search 20+, and Live Site Translation 160+. [See language support details](https://www.skynettechnologies.com/all-in-one-accessibility/languages).
 
 **How can I upgrade from the free widget to the paid app?**
 
@@ -73,11 +73,15 @@ Upgrade to a paid subscription with 100+ advanced features. Check out the [upgra
 
 **What additional features are available in the paid version?**
 
-The paid app includes a screen reader, voice navigation, talk & type, virtual keyboard, dictionary search, 12 accessibility profiles tailored for different disability groups, Libras (Brazilian Sign Language), automated compliance accessibility reports, AI-based remediation guidelines, and more. Explore the [paid accessibility app](https://www.skynettechnologies.com/all-in-one-accessibility) and buy now.
+The paid app includes a screen reader, voice navigation, talk & type, virtual keyboard, dictionary search, 12 accessibility profiles tailored for different disability groups, Libras (Brazilian Sign Language), American Sign Language, automated compliance accessibility reports, AI-based remediation guidelines, and more. Explore the [paid accessibility app](https://www.skynettechnologies.com/all-in-one-accessibility) and buy now.
 
-**Can I try Pro before buying?**
+**Can I try the paid app before buying?**
 
-Yes. Pro comes with a [10-day free trial](https://ada.skynettechnologies.us/trial-subscription) that includes all features.
+Yes. The paid app comes with a [10-day free trial](https://ada.skynettechnologies.us/trial-subscription) that includes all features.
+
+**Which themes are supported?**
+
+Any website frontend that renders your Sanity content, such as plain HTML and React / Next.js sites, and many more.
 
 ## Supported Languages (190+)
 
@@ -85,37 +89,41 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 
 ## Prerequisites
 
-- Sanity Studio v4 or newer (React 18 or 19)
+- Sanity Studio v4, v5 or v6 (React 18 or 19)
 - Node.js 20.19+ or 22.12+
 
-- Tested and verified on Sanity Studio 6.3
+- Tested and verified on Sanity Studio 6.24
 
 ## Installation
 
 1. Install the plugin in your Sanity Studio project:
 
-```sh
-npm install sanity-plugin-all-in-one-accessibility
-```
+   ```sh
+   npm install sanity-plugin-all-in-one-accessibility
+   ```
 
-1. Add it as a plugin in `sanity.config.ts` (or `.js`):
+2. Add it as a plugin in `sanity.config.ts` (or `.js`). The options are described under [Plugin options](#plugin-options).
 
-```ts
-import {defineConfig} from 'sanity'
-import {AllinOneAccessibilityPlugin} from 'sanity-plugin-all-in-one-accessibility'
+   ```ts
+   import {defineConfig} from 'sanity'
+   import {AllinOneAccessibilityPlugin} from 'sanity-plugin-all-in-one-accessibility'
 
-export default defineConfig({
-  //...
-  plugins: [
-    AllinOneAccessibilityPlugin({
-      // Optional: the website the widget runs on (default: the Studio's hostname)
-      websiteUrl: 'www.your-website.com',
-    }),
-  ],
-})
-```
+   export default defineConfig({
+     //...
+     plugins: [
+       AllinOneAccessibilityPlugin({
+         // Optional: the website the widget runs on (default: the Studio's hostname)
+         websiteUrl: 'www.your-website.com',
+       }),
+     ],
+   })
+   ```
 
-**Plugin options** (all optional):
+3. Add the widget script to the **header** or **footer** of your website frontend, as shown in [Add the Script](#add-the-script).
+
+### Plugin options
+
+All options are optional.
 
 | Option | Default | Description |
 | --- | --- | --- |
@@ -123,13 +131,11 @@ export default defineConfig({
 | `username` | The signed-in Sanity user's name | Admin name sent once, when a new website is registered for the free widget. |
 | `email` | The signed-in Sanity user's email | Admin email sent once, when a new website is registered (falls back to `no-reply@<website>`). |
 
-1. Add the widget script to the **header** or **footer** of your website frontend:
-
-## Add the Script
+### Add the Script
 
 Place the following script in the **header** or **footer** section of your website or frontend:
 
-### Option A: Plain HTML
+#### Option A: Plain HTML
 
 Place this script before the closing `</body>` tag (or in the footer template).
 
@@ -137,7 +143,7 @@ Place this script before the closing `</body>` tag (or in the footer template).
 <script id="aioa-adawidget" src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#420083&token=&position=bottom_right"></script>
 ```
 
-### Option B: React/Next.js
+#### Option B: React/Next.js
 
 Add this to a client component (e.g., your layout or a top-level page). The script loads the widget after a short delay to avoid blocking page rendering.
 
@@ -155,17 +161,17 @@ setTimeout(() => {
 }, 5000);
 ```
 
-## EU Region Support (Recommended for EU-Based Websites)
+### EU Region Support (Recommended for EU-Based Websites)
 
 If your website or business operates in the **European Union (EU)**, use the **EU region–hosted script** to improve performance for EU users and better align with GDPR and EU data residency requirements.
 
-### EU Script Base URL
+#### EU Script Base URL
 
 ```text
 https://eu.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js
 ```
 
-### Option A: Plain HTML (EU Region)
+#### Option A: Plain HTML (EU Region)
 
 ```html
 <script
@@ -174,7 +180,7 @@ https://eu.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-w
 </script>
 ```
 
-### Option B: React / Next.js (EU Region)
+#### Option B: React / Next.js (EU Region)
 
 ```typescript
 function load_aioa_script() {
@@ -196,19 +202,20 @@ Check out our [**Sanity WCAG accessibility widget installation steps**](https://
 
 ## Configuration
 
-Configure the widget from Sanity Studio.
+Configure the widget from the Sanity admin panel.
 
 **Path:** Sanity Studio → **All in One Accessibility** (top navigation)
 
 **Steps:**
 
-1. Log in to your Sanity Studio.
-2. Open Sanity Studio → **All in One Accessibility** (top navigation). A website that is not registered yet is registered for the free widget automatically the first time the tool opens.
-3. On **Appearance Design**, configure the widget color, widget size, position, icon type and icon size.
-4. On a paid plan, also use **Paid Features** (widget position for mobile, custom accessibility statement and report a problem links, external link navigation, open/close sound) and **Accessibility Score** (scan results of your website). The **Dashboard** button opens your All in One Accessibility dashboard.
-5. Click **Save Changes**.
+1. Log in to the Sanity admin panel.
+2. Navigate to Sanity Studio → **All in One Accessibility** (top navigation).
+3. Configure options (color, icon type, position, size).
+4. Save your changes.
 
-When a website is registered for the first time, the website domain and the admin's name and email (the signed-in Sanity user, or the `username` / `email` plugin options) are sent to Skynet Technologies to set up the free widget. Your browser's location is checked once with ipapi.co to tell whether you are in the EU. If your Studio has a Content Security Policy, allow the domains in the CORS table below in `connect-src`.
+An exact position can be set from 0 to 500 px and an exact icon size from 24 to 150 px. On a paid plan, the **Paid Features** tab (widget position for mobile, custom links, widget switches), the **Accessibility Score** tab and the **Dashboard** button are also available.
+
+A website that is not registered yet is registered for the free widget the first time the tool opens. The website domain and the admin's name and email (the signed-in Sanity user, or the `username` / `email` plugin options) are then sent to Skynet Technologies, and your browser's location is checked once with ipapi.co to tell whether you are in the EU. If your Studio has a Content Security Policy, allow the domains in the CORS table below in `connect-src`.
 
 ## Demo
 
@@ -224,13 +231,13 @@ To avoid CORS policy issues, ensure the following URLs are allowed on your websi
 | --- | --- | --- |
 | https://\*.skynettechnologies.com | Skynet Technologies (Global Domain) | API access and resources |
 | https://\*.skynettechnologies.us | Skynet Technologies (US Domain) | API access and resources |
-| <https://skynetaccessibilityscan.com> | SkynetAccessibility Scanner | Accessibility scan results and score |
+| https://skynetaccessibilityscan.com | SkynetAccessibility Scanner | Accessibility scan results and score |
 | https://\*.googleapis.com | Google APIs | Services like Fonts, Translation |
 | https://\*.gstatic.com | Fonts APIs | Custom Fonts |
-| <https://vlibras.gov.br> | VLibras – Brazilian Sign Language Service | Sign Language |
-| <https://ipapi.co> | ipapi – IP Geolocation API | Called once during installation to detect an EU location and add the EU-based widget script (endpoint: `/json/`) |
+| https://vlibras.gov.br | VLibras – Brazilian Sign Language Service | Sign Language |
+| https://ipapi.co | ipapi – IP Geolocation API | Called once during installation to detect an EU location and add the EU-based widget script (endpoint: `/json/`) |
 
-### Instructions
+**Instructions**
 
 1. Update your server's CORS configuration to include these URLs.
 2. Ensure wildcard subdomains (\*) are supported where necessary.
@@ -246,11 +253,11 @@ To avoid CORS policy issues, ensure the following URLs are allowed on your websi
 
 ## Support
 
-### Submit a Support Request
+**Submit a Support Request**
 
 Visit our [**support page**](https://www.skynettechnologies.com/report-accessibility-problem) and fill out the form. Our team will get back to you as soon as possible.
 
-### Send Us an Email
+**Send Us an Email**
 
 Email our support team: [**hello@skynettechnologies.com**](mailto:hello@skynettechnologies.com)
 
@@ -298,7 +305,7 @@ Remove the Skynet Technologies logo and all footer links, popups, the "report a 
 
 [**Instant Live Site Translations**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
-Translate your website into over 190 languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
+Translate your website into 160+ languages instantly to enhance accessibility for non-native speakers, individuals with language acquisition difficulties, and those with learning disabilities.
 
 [**Modify Accessibility Menu**](https://www.skynettechnologies.com/all-in-one-accessibility/addons#accessibility-widget-add-ons)
 
